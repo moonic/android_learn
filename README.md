@@ -1,5 +1,5 @@
 # android_learn
-##Android项目的目录结构
+##  Android项目的目录结构
 * Activity：应用被打开时显示的界面
 * src：项目代码
 * R.java：项目中所有资源文件的资源id
@@ -13,7 +13,7 @@
 * menu：定义菜单的样式
 * Strings.xml：存放字符串资源，每个资源都会有一个资源id
 
-###Android的配置文件（清单文件）（熟悉）
+### Android的配置文件（清单文件）（熟悉）
 * 指定应用的包名
 
 		package="com.itheima.helloworld"
@@ -25,13 +25,13 @@
 * <activity/>的配置对该activity生效
 
 ---
-#DDMS
+# DDMS
 * Dalvik debug monitor service
 * Dalvik调试监控服务
 
 ---
-#常用的adb指令
-###Android debug bridge：安卓调试桥
+# 常用的adb指令
+### Android debug bridge：安卓调试桥
 * adb start-server:启动adb进程
 * adb kill-server：杀死adb进程
 * adb devices：查看当前与开发环境连接的设备，此命令也可以启动adb进程
@@ -43,9 +43,9 @@
 * netstat -ano：查看占用端口的进程
 
 ---------------
-#电话拨号器
+# 电话拨号器
 >功能：用户输入一个号码，点击拨打按钮，启动系统打电话的应用把号码拨打出去
-###1. 定义布局
+### 1. 定义布局
 1. 组件必须设置宽高，否则不能通过编译
 
 		android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
 2. 如果要在java代码中操作某个组件，则组件需要设置id，这样才能在代码中通过id拿到这个组件
 
 		android:id="@+id/et_phone"
-###2. 给按钮设置点击侦听
+### 2. 给按钮设置点击侦听
 
 1. 给按钮设置侦听
 
@@ -62,13 +62,13 @@
         //给按钮设置点击
         bt_call.setOnClickListener(new MyListener());
 
-###3. 得到用户输入的号码
+### 3. 得到用户输入的号码
 
 		//得到用户输入的号码，先拿到输入框组件
 			EditText et_phone = (EditText) findViewById(R.id.et_phone);
 			String phone = et_phone.getText().toString();
 
-###4. 把号码打出去
+### 4. 把号码打出去
 1. Android系统中基于动作机制，来调用系统的应用，你告诉系统你想做什么动作，系统就会把能做这个动作的应用给你，如果没有这个应用，会抛异常
 2. 设置动作，通过意图告知系统
 
@@ -86,14 +86,14 @@
 		<uses-permission android:name="android.permission.CALL_PHONE"/>
 
 ----------
-#点击事件的四种写法
-###第一种
+# 点击事件的四种写法
+### 第一种
 * 定义一个MyListener实现onClickListener接口
 
 		Button bt1 = (Button) findViewById(R.id.bt1);
         bt1.setOnClickListener(new MyListener());
 
-###第二种
+### 第二种
 * 定义一个匿名内部类实现onClickListener接口
 
 		Button bt2 = (Button) findViewById(R.id.bt2);
@@ -106,13 +106,13 @@
 			}
 		});
 
-###第三种
+### 第三种
 * 让当前activity实现onClickListener接口
 
 		Button bt3 = (Button) findViewById(R.id.bt3);
         bt3.setOnClickListener(this);
 
-###第四种
+### 第四种
 * 给Button节点设置onClick属性，
 
 		 android:onClick="click"
@@ -124,9 +124,9 @@
 		}
 
 --------
-#短信发送器（掌握）
+# 短信发送器（掌握）
 > 功能：用户输入号码和短信内容，点击发送按钮，调用短信api把短信发送给指定号码
-###1. 定义布局
+### 1. 定义布局
 * 输入框的提示
 
 		android:hint="请输入号码"  
@@ -137,13 +137,13 @@
 * 在Activity中定义此方法
 * 
 		public void send(View v){}
-###3. 获取到用户输入的号码和内容
+### 3. 获取到用户输入的号码和内容
 
 		EditText et_phone = (EditText) findViewById(R.id.et_phone);
     	EditText et_content = (EditText) findViewById(R.id.et_content);
     	String phone = et_phone.getText().toString();
     	String content = et_content.getText().toString();
-###4. 调用发送短信的api
+### 4. 调用发送短信的api
 
 		//调用发送短信的api
     	SmsManager sm = SmsManager.getDefault();
@@ -158,8 +158,8 @@
 		List<String> smss = sm.divideMessage(content);
 
 ---
-#常用布局
-###线性布局
+# 常用布局
+### 线性布局
 * LinearLayout
 * 指定各个节点的排列方向
 
